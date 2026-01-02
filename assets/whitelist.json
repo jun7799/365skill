@@ -1,0 +1,10 @@
+{
+  "whitelisted_skills": [
+    {
+      "name": "daily-trending-articles-hunter",
+      "reason": "Personal use - test configuration",
+      "added_at": "2026-01-02"
+    }
+  ],
+  "notes": "Skills in this list will be skipped during security scans. Only add skills you trust and understand."
+}
