@@ -1,12 +1,12 @@
 ---
-name: 360skill
+name: 365skill
 description: Security scanner for installed skills. Automatically detects suspicious content like credential theft, malicious scripts, and data exfiltration. Provides interactive risk assessment with options to quarantine or delete risky skills. Use when installing new skills or periodically scanning existing skills for security issues.
 license: MIT
 ---
 
-# 360skill - Skill 安全卫士
+# 365skill - Skill 安全卫士
 
-360skill 是一个专门用于检测和防护恶意技能的安全扫描工具。它可以自动检测已安装 skill 中的可疑内容，包括敏感信息泄露、恶意脚本、数据外传等安全风险。
+365skill 是一个专门用于检测和防护恶意技能的安全扫描工具。它可以自动检测已安装 skill 中的可疑内容，包括敏感信息泄露、恶意脚本、数据外传等安全风险。
 
 ## 功能特性
 
@@ -44,32 +44,32 @@ license: MIT
 使用交互式扫描，可以查看风险并选择是否删除：
 
 ```bash
-python ~/.claude/skills/360skill/scripts/interactive_scan.py
+python ~/.claude/skills/365skill/scripts/interactive_scan.py
 ```
 
 或者使用快速扫描模式：
 
 ```bash
 # 默认深度检测
-python ~/.claude/skills/360skill/scripts/scan_skills.py
+python ~/.claude/skills/365skill/scripts/scan_skills.py
 
 # 基础检测
-python ~/.claude/skills/360skill/scripts/scan_skills.py --level basic
+python ~/.claude/skills/365skill/scripts/scan_skills.py --level basic
 
 # 全量检测
-python ~/.claude/skills/360skill/scripts/scan_skills.py --level full
+python ~/.claude/skills/365skill/scripts/scan_skills.py --level full
 ```
 
 ### 场景 2: 扫描单个 skill
 
 ```bash
-python ~/.claude/skills/360skill/scripts/scan_skills.py --skill <skill-name>
+python ~/.claude/skills/365skill/scripts/scan_skills.py --skill <skill-name>
 ```
 
 ### 场景 3: JSON 格式输出（用于脚本集成）
 
 ```bash
-python ~/.claude/skills/360skill/scripts/scan_skills.py --json
+python ~/.claude/skills/365skill/scripts/scan_skills.py --json
 ```
 
 ### 场景 4: 新技能安装时自动检测
@@ -79,7 +79,7 @@ python ~/.claude/skills/360skill/scripts/scan_skills.py --json
 ```json
 {
   "hooks": {
-    "pre-skill-install": "~/.claude/skills/360skill/scripts/scan_skills.py --level deep"
+    "pre-skill-install": "~/.claude/skills/365skill/scripts/scan_skills.py --level deep"
   }
 }
 ```
@@ -186,7 +186,7 @@ open("~/.aws/credentials", "r")
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep"
   }
 }
 ```
@@ -194,7 +194,7 @@ open("~/.aws/credentials", "r")
 ### 方法 2: 使用环境变量
 
 ```bash
-export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name}"
+export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name}"
 ```
 
 ## 故障排除
@@ -211,7 +211,7 @@ export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/360skill/scripts/scan_s
 如果发现误报，可以：
 1. 使用 `--level basic` 降低检测级别
 2. 手动审查相关代码
-3. 将误报情况反馈给 360skill 维护者
+3. 将误报情况反馈给 365skill 维护者
 
 ### 性能优化
 
@@ -224,13 +224,13 @@ export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/360skill/scripts/scan_s
 1. **定期扫描** - 建议每周扫描一次已安装的 skill
 2. **安装前检查** - 使用 Hook 自动检测新安装的 skill
 3. **谨慎删除** - 删除前查看详细风险信息
-4. **保持更新** - 定期更新 360skill 以获取最新检测规则
+4. **保持更新** - 定期更新 365skill 以获取最新检测规则
 
 ## 技术细节
 
 ### 扫描原理
 
-360skill 使用正则表达式模式匹配来检测潜在风险。扫描器会：
+365skill 使用正则表达式模式匹配来检测潜在风险。扫描器会：
 1. 遍历 skills 目录
 2. 读取所有支持的文件类型（.py, .js, .ts, .sh, .md, .json 等）
 3. 使用预定义的模式进行匹配
@@ -247,7 +247,7 @@ export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/360skill/scripts/scan_s
 ### 性能考虑
 
 - 使用编译后的正则表达式提高性能
-- 默认跳过 360skill 自身
+- 默认跳过 365skill 自身
 - 按需加载检测模式
 
 ## 许可证

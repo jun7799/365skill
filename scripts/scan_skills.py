@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-360skill - Skill Security Scanner
+365skill - Skill Security Scanner
 Scans installed skills for potential security risks
 """
 
@@ -72,7 +72,7 @@ class SkillSecurityScanner:
         if not self.use_whitelist:
             return set()
 
-        whitelist_path = self.skills_dir / "360skill" / "assets" / "whitelist.json"
+        whitelist_path = self.skills_dir / "365skill" / "assets" / "whitelist.json"
         if not whitelist_path.exists():
             return set()
 
@@ -276,8 +276,8 @@ class SkillSecurityScanner:
 
         result = ScanResult(skill_name=skill_name, is_safe=True)
 
-        # Skip 360skill itself
-        if skill_name == "360skill":
+        # Skip 365skill itself
+        if skill_name == "365skill":
             result.is_safe = True
             return result
 
@@ -372,7 +372,7 @@ class SkillSecurityScanner:
 
         # Print report
         print("\n" + "="*70)
-        print("360skill Security Scan Report")
+        print("365skill Security Scan Report")
         print("="*70)
 
         total_risks = sum(len(r.findings) for r in self.results if not r.is_safe)
@@ -422,7 +422,7 @@ class SkillSecurityScanner:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="360skill - Skill Security Scanner")
+    parser = argparse.ArgumentParser(description="365skill - Skill Security Scanner")
     parser.add_argument(
         "--level",
         choices=["basic", "deep", "full"],
@@ -470,7 +470,7 @@ def main():
 
     # Handle whitelist management commands
     if args.whitelist_show:
-        whitelist_path = skills_dir / "360skill" / "assets" / "whitelist.json"
+        whitelist_path = skills_dir / "365skill" / "assets" / "whitelist.json"
         if not whitelist_path.exists():
             print("Whitelist is empty or doesn't exist")
             return
@@ -487,7 +487,7 @@ def main():
         return
 
     if args.whitelist_add:
-        whitelist_path = skills_dir / "360skill" / "assets" / "whitelist.json"
+        whitelist_path = skills_dir / "365skill" / "assets" / "whitelist.json"
         whitelist_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Load existing whitelist
@@ -518,7 +518,7 @@ def main():
         return
 
     if args.whitelist_remove:
-        whitelist_path = skills_dir / "360skill" / "assets" / "whitelist.json"
+        whitelist_path = skills_dir / "365skill" / "assets" / "whitelist.json"
         if not whitelist_path.exists():
             print(f"Whitelist doesn't exist")
             return

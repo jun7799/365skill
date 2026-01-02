@@ -1,6 +1,6 @@
 # Hook 配置参考
 
-本文档说明如何配置 360skill 的 Hook 功能，实现新技能安装时自动检测。
+本文档说明如何配置 365skill 的 Hook 功能，实现新技能安装时自动检测。
 
 ## 方法 1: 配置 settings.json
 
@@ -9,7 +9,7 @@
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep"
   }
 }
 ```
@@ -24,8 +24,8 @@
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep && echo '扫描完成'",
-    "post-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep && echo '扫描完成'",
+    "post-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep"
   }
 }
 ```
@@ -35,7 +35,7 @@
 在 shell 配置文件（`.bashrc`, `.zshrc` 等）中添加：
 
 ```bash
-export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep"
+export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep"
 ```
 
 ## 方法 3: 创建 Hook 脚本
@@ -45,7 +45,7 @@ export CLAUDE_PRE_SKILL_INSTALL="python ~/.claude/skills/360skill/scripts/scan_s
 ```bash
 #!/bin/bash
 SKILL_NAME="$1"
-python ~/.claude/skills/360skill/scripts/scan_skills.py --skill "$SKILL_NAME" --level deep
+python ~/.claude/skills/365skill/scripts/scan_skills.py --skill "$SKILL_NAME" --level deep
 if [ $? -ne 0 ]; then
     echo "⚠️  检测到风险！建议取消安装"
     read -p "是否继续安装？(y/n): " confirm
@@ -62,7 +62,7 @@ fi
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level basic"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level basic"
   }
 }
 ```
@@ -72,7 +72,7 @@ fi
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep"
   }
 }
 ```
@@ -82,7 +82,7 @@ fi
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level full"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level full"
   }
 }
 ```
@@ -92,7 +92,7 @@ fi
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/interactive_scan.py --skill {skill_name}"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/interactive_scan.py --skill {skill_name}"
   }
 }
 ```
@@ -123,7 +123,7 @@ claude skill install test-skill
 确保脚本有执行权限：
 
 ```bash
-chmod +x ~/.claude/skills/360skill/scripts/*.py
+chmod +x ~/.claude/skills/365skill/scripts/*.py
 ```
 
 ## 禁用 Hook

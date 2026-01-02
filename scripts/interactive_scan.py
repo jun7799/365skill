@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-360skill Interactive Scanner
+365skill Interactive Scanner
 Provides interactive interface to review risks and delete risky skills
 """
 
@@ -88,7 +88,7 @@ class InteractiveScanner:
     def run(self):
         """Run interactive scan"""
         print("\n" + "="*70)
-        print("360skill Security Guard - Interactive Scan")
+        print("365skill Security Guard - Interactive Scan")
         print("="*70)
         print(f"\nScan level: {self.scan_level.value}")
         print(f"Skills dir: {self.skills_dir}")
@@ -100,7 +100,7 @@ class InteractiveScanner:
         # Classify results
         risky_skills = []
         for result in self.scanner.results:
-            if not result.is_safe and result.skill_name != "360skill":
+            if not result.is_safe and result.skill_name != "365skill":
                 # Find highest risk level
                 highest_risk = RiskLevel.INFO
                 for finding in result.findings:
@@ -201,7 +201,7 @@ class InteractiveScanner:
 def main():
     import argparse
 
-    parser = argparse.ArgumentParser(description="360skill Interactive Security Scan")
+    parser = argparse.ArgumentParser(description="365skill Interactive Security Scan")
     parser.add_argument(
         "--level",
         choices=["basic", "deep", "full"],

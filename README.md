@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ 360skill - Skill 安全卫士
+# 🛡️ 365skill - Skill 安全卫士
 
 **Claude Code 技能安全扫描器**
 
@@ -16,11 +16,11 @@
 
 ## 📖 简介
 
-**360skill** 是专门为 Claude Code 技能设计的安全扫描器。它可以自动检测潜在的安全风险，包括硬编码凭据、恶意命令、代码混淆和数据外传等。
+**365skill** 是专门为 Claude Code 技能设计的安全扫描器。它可以自动检测潜在的安全风险，包括硬编码凭据、恶意命令、代码混淆和数据外传等。
 
-### 为什么需要 360skill？
+### 为什么需要 365skill？
 
-当你安装社区技能时，实际上是在你的机器上执行代码。**360skill** 帮你：
+当你安装社区技能时，实际上是在你的机器上执行代码。**365skill** 帮你：
 
 - 🔍 **安装前扫描** - 通过 Hook 自动检测风险
 - 🛡️ **保护你的凭据** - 发现硬编码的 API 密钥和令牌
@@ -63,18 +63,18 @@
 
 ```bash
 cd ~/.claude/skills
-git clone https://github.com/yourusername/360skill.git
+git clone https://github.com/yourusername/365skill.git
 ```
 
 ### 方法 2：手动安装
 
-1. 下载并解压到 `~/.claude/skills/360skill/`
+1. 下载并解压到 `~/.claude/skills/365skill/`
 2. 确保目录结构完整
 
 ### 验证安装
 
 ```bash
-python ~/.claude/skills/360skill/scripts/scan_skills.py --help
+python ~/.claude/skills/365skill/scripts/scan_skills.py --help
 ```
 
 ---
@@ -85,42 +85,42 @@ python ~/.claude/skills/360skill/scripts/scan_skills.py --help
 
 ```bash
 # 扫描所有已安装的技能（深度模式）
-python ~/.claude/skills/360skill/scripts/scan_skills.py
+python ~/.claude/skills/365skill/scripts/scan_skills.py
 
 # 交互式模式（可选择删除）
-python ~/.claude/skills/360skill/scripts/interactive_scan.py
+python ~/.claude/skills/365skill/scripts/interactive_scan.py
 ```
 
 ### 命令选项
 
 ```bash
 # 基础扫描（更快）
-python ~/.claude/skills/360skill/scripts/scan_skills.py --level basic
+python ~/.claude/skills/365skill/scripts/scan_skills.py --level basic
 
 # 全量扫描（最全面）
-python ~/.claude/skills/360skill/scripts/scan_skills.py --level full
+python ~/.claude/skills/365skill/scripts/scan_skills.py --level full
 
 # 扫描指定技能
-python ~/.claude/skills/360skill/scripts/scan_skills.py --skill <技能名称>
+python ~/.claude/skills/365skill/scripts/scan_skills.py --skill <技能名称>
 
 # JSON 输出（用于脚本/CI）
-python ~/.claude/skills/360skill/scripts/scan_skills.py --json
+python ~/.claude/skills/365skill/scripts/scan_skills.py --json
 
 # 禁用白名单（扫描全部）
-python ~/.claude/skills/360skill/scripts/scan_skills.py --no-whitelist
+python ~/.claude/skills/365skill/scripts/scan_skills.py --no-whitelist
 ```
 
 ### 白名单管理
 
 ```bash
 # 查看白名单
-python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-show
+python ~/.claude/skills/365skill/scripts/scan_skills.py --whitelist-show
 
 # 添加到白名单
-python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-add <技能名称>
+python ~/.claude/skills/365skill/scripts/scan_skills.py --whitelist-add <技能名称>
 
 # 从白名单移除
-python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-remove <技能名称>
+python ~/.claude/skills/365skill/scripts/scan_skills.py --whitelist-remove <技能名称>
 ```
 
 ---
@@ -129,7 +129,7 @@ python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-remove <技�
 
 ```
 ======================================================================
-360skill 安全扫描报告
+365skill 安全扫描报告
 ======================================================================
 
 扫描统计:
@@ -166,7 +166,7 @@ python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-remove <技�
 ```json
 {
   "hooks": {
-    "pre-skill-install": "python ~/.claude/skills/360skill/scripts/scan_skills.py --skill {skill_name} --level deep"
+    "pre-skill-install": "python ~/.claude/skills/365skill/scripts/scan_skills.py --skill {skill_name} --level deep"
   }
 }
 ```
@@ -175,7 +175,7 @@ python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-remove <技�
 
 ### 白名单配置
 
-白名单文件位置：`~/.claude/skills/360skill/assets/whitelist.json`
+白名单文件位置：`~/.claude/skills/365skill/assets/whitelist.json`
 
 ```json
 {
@@ -246,11 +246,11 @@ python ~/.claude/skills/360skill/scripts/scan_skills.py --whitelist-remove <技�
 
 ## 🛡️ 安全最佳实践
 
-1. **始终审查新技能** - 让 360skill 先扫描
+1. **始终审查新技能** - 让 365skill 先扫描
 2. **使用环境变量** - 永远不要硬编码凭据
 3. **启用预安装 Hook** - 自动化安全检查
 4. **定期审查白名单** - 移除不使用的条目
-5. **保持 360skill 更新** - 获取最新检测模式
+5. **保持 365skill 更新** - 获取最新检测模式
 
 ---
 
@@ -310,7 +310,7 @@ chmod -R +r ~/.claude/skills
 
 1. 验证 `settings.json` 语法正确
 2. 使用绝对 Python 路径：`/usr/bin/python3` 或 `python`
-3. 手动测试：`python ~/.claude/skills/360skill/scripts/scan_skills.py`
+3. 手动测试：`python ~/.claude/skills/365skill/scripts/scan_skills.py`
 
 ---
 
